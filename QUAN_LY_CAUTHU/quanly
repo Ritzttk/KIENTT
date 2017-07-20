@@ -1,26 +1,8 @@
 import sqlite3
-conn = sqlite3.connect("quan_ly_ct.db")
-sql = '''
-       CREATE TABLE user(
-            id INTERGER PRIMARY KEY,
-            username TEXT NOT NULL UNIQUE,
-            password TEXT NOT NULL,
-           );
-       CREATE TABLE cauthu(
-           id INTERGER PRIMARY KEY,
-           ten TEXT NOT NULL,
-           vitri TEXT NOT NULL,
-           nam_gia_nhap INTERGER NOT NULL,
-           gia REAL NOT NULL
-           hinh TEXT
-       );
-       INSERT INTO user(username,password) VALUES ('kientt','123456')
-'''
-conn.execute(sql)
-conn.close()
 
 class CAUTHU(object):
-    def __init__(self,ten,vitri,nam_gia_nhap,gia,hinh):
+    def __init__(self,id,ten,vitri,nam_gia_nhap,gia,hinh):
+        self.id = id
         self.ten = ten
         self.vitri = vitri
         self.nam_gia_nhap = nam_gia_nhap
