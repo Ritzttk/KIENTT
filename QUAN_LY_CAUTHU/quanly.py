@@ -2,21 +2,25 @@ import sqlite3
 conn = sqlite3.connect("quan_ly_ct.db")
 sql = '''
        CREATE TABLE user(
-            id INTERGER PRIMARY KEY,
+            id INTEGER PRIMARY KEY,
             username TEXT NOT NULL UNIQUE,
-            password TEXT NOT NULL,
+            password TEXT NOT NULL
            );
+        '''
+sql1='''
        CREATE TABLE cauthu(
-           id INTERGER PRIMARY KEY,
+           id INTEGER PRIMARY KEY,
            ten TEXT NOT NULL,
            vitri TEXT NOT NULL,
-           nam_gia_nhap INTERGER NOT NULL,
-           gia REAL NOT NULL
+           nam_gia_nhap INTEGER NOT NULL,
+           gia REAL NOT NULL,
            hinh TEXT
-       );
-       INSERT INTO user(username,password) VALUES ('kientt','123456')
+       );'''
+sql2='''
+       INSERT INTO user(username,password) VALUES ('kientt','123456');
 '''
-conn.execute(sql)
+conn.execute(sql2)
+conn.execute(sql1)
 conn.close()
 
 class CAUTHU(object):
@@ -26,9 +30,3 @@ class CAUTHU(object):
         self.nam_gia_nhap = nam_gia_nhap
         self.gia = gia
         self.hinh = hinh
-
-
-
-
-
-
